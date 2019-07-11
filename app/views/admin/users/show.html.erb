@@ -21,7 +21,7 @@
             <% if post.deleted? %>
               <%= link_to "Restore", "#", class: "btn btn-xs btn-warning" %>
             <% else %>
-              <%= link_to "Delete", "#", method: :delete, class: "btn btn-xs btn-danger" %>
+              <%= link_to "Delete", admin_post_path(post), method: :delete, class: "btn btn-xs btn-danger" %>
             <% end %>
           </td>
         </tr>

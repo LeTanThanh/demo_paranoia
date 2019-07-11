@@ -1,8 +1,14 @@
 class Admin::PostsController < ApplicationController
-  before_action :load_post, only: %i(show)
+  before_action :load_post, only: %i(show destroy)
 
   def show
     @user = User.with_deleted.find_by id: @post.user_id    
+  end
+
+  def destroy
+    @post.destroy
+
+    redirect_back(fallback_location: admin_root_url)
   end
 
   private
