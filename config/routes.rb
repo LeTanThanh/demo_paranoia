@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'posts/show'
-
   root "users#index"
 
   resources :users, only: %i(show destroy)
-  resources :posts, only: :show
+  resources :posts, only: %i(show destroy)
 end
