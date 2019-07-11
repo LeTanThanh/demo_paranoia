@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Users</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr class="<%= "active" if user.deleted? %>">
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td>
+            <%= link_to "View", user, class: "btn btn-xs btn-info" %> |
+            <% if user.deleted? %>
+              <%= link_to "Restore", "#", class: "btn btn-xs btn-warning" %>
+            <% else %>
+              <%= link_to "Delete", user, method: :delete, class: "btn btn-xs btn-danger" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
