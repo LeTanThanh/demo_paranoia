@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Users</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= link_to "View", "#", class: "btn btn-xs btn-info" %> | <%= link_to "Delete", "#", class: "btn btn-xs btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
