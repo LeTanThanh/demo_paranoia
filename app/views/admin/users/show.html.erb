@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>User <%= @user.name %></h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>Content</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr class="<%= "active" if post.deleted? %>">
+          <td><%= post.id %></td>
+          <td><%= post.title.first(20) << " ..." %></td>
+          <td><%= post.content.first(60) << " ..." %></td>
+          <td>
+            <%= link_to "View", "#", class: "btn btn-xs btn-info" %> |
+            <% if post.deleted? %>
+              <%= link_to "Restore", "#", class: "btn btn-xs btn-warning" %>
+            <% else %>
+              <%= link_to "Delete", "#", method: :delete, class: "btn btn-xs btn-danger" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
