@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "users#index"
 
-    resources :users, only: %i(index show) do
+    resources :users, only: %i(index show destroy) do
       member do
         patch :restore
       end

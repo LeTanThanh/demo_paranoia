@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  before_action :load_user, only: %i(show restore)
+  before_action :load_user, only: %i(show destroy restore)
 
   def index
     @users = User.with_deleted
@@ -7,6 +7,12 @@ class Admin::UsersController < ApplicationController
 
   def show
     @posts = Post.with_deleted.where(user_id: @user.id)
+  end
+
+  def destroy
+    @user.destroy
+
+    redirect_back(fallback_location: admin_root_url)
   end
 
   def restore

@@ -21,7 +21,7 @@
             <% if user.deleted? %>
               <%= link_to "Restore", restore_admin_user_path(user), method: :patch, class: "btn btn-xs btn-warning" %>
             <% else %>
-              <%= link_to "Delete", user, method: :delete, class: "btn btn-xs btn-danger" %>
+              <%= link_to "Delete", admin_user_path(user), method: :delete, class: "btn btn-xs btn-danger" %>
             <% end %>
           </td>
         </tr>
