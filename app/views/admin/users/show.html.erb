@@ -17,7 +17,7 @@
           <td><%= post.title.first(20) << " ..." %></td>
           <td><%= post.content.first(60) << " ..." %></td>
           <td>
-            <%= link_to "View", "#", class: "btn btn-xs btn-info" %> |
+            <%= link_to "View", admin_post_path(post), class: "btn btn-xs btn-info" %> |
             <% if post.deleted? %>
               <%= link_to "Restore", "#", class: "btn btn-xs btn-warning" %>
             <% else %>

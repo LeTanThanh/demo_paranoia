@@ -1,0 +1,8 @@
+<div class="container">
+  <h2>Post <%= @post.title %></h2>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">Author: <%= link_to @user.name, admin_user_path(@user) %></div>
+    <div class="panel-body"><%= @post.content %></div>
+  </div>
+</div>

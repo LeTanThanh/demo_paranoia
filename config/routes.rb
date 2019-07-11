@@ -12,5 +12,6 @@ Rails.application.routes.draw do
         patch :restore
       end
     end
+    resources :posts, only: %i(show)
   end
 end
