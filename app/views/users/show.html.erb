@@ -16,7 +16,7 @@
           <td><%= post.id %></td>
           <td><%= post.title.first(20) << " ..." %></td>
           <td><%= post.content.first(60) << " ..." %></td>
-          <td><%= link_to "View", "#", class: "btn btn-xs btn-info" %> | <%= link_to "Delete", "#", class: "btn btn-xs btn-danger" %></td>
+          <td><%= link_to "View", post, class: "btn btn-xs btn-info" %> | <%= link_to "Delete", "#", class: "btn btn-xs btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>
