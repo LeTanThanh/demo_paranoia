@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   root "users#index"
 
-  resources :users, only: :show
+  resources :users, only: %i(show destroy)
   resources :posts, only: :show
 end

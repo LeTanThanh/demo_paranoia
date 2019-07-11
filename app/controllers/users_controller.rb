@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :load_user, only: :show
+  before_action :load_user, only: %i(show destroy)
 
   def index
     @users = User.all
@@ -7,6 +7,12 @@ class UsersController < ApplicationController
 
   def show
     @posts = @user.posts
+  end
+
+  def destroy
+    @user.destroy
+
+    redirect_back(fallback_location: root_path)
   end
 
   private
